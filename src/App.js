@@ -20,13 +20,6 @@ function App() {
     });
   }
 
-  // function MarkTODO(idx, done) {
-    
-  //     // complete it
-      
-  // }
-
-  //added MarkTODO
   const MarkTODO = (idx, done) => {
     console.log(idx)
     setTODO(TODO.map((t,id) => id === idx
@@ -46,8 +39,7 @@ function App() {
             val={t.content}
             onDelete={DeleteTODO}
             onDone={MarkTODO}
-            //added checked
-            checked={true}
+            checked
           />
         );
       })}

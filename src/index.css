@@ -38,10 +38,6 @@ body {
 }
 
 .markTODO{
-  display: flex;
-  margin-top: 1rem;
-  font-size: 1rem;
-  margin-left: 40%;
   text-decoration: line-through;
 }
 
