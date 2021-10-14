@@ -18,16 +18,15 @@ export default function TODOS(props) {
   }
 
   return (
+    <>
     <div className="displayTODO">
-      <div className="displayNewTODO">
-       {props.val}
-      </div>
-      <button className="myBtn" onClick={Delete}>
+      <div className={`displayNewTODO ${!props.checked ? 'markTODO' : ''}`} />
+      {props.val}
+    </div><button className="myBtn" onClick={Delete}>
         Delete
-      </button>
-      <button className="myBtn" onClick={MarkAsDone}>
+      </button><button className="myBtn" onClick={MarkAsDone}>
         Mark As Done
       </button>
-    </div>
+    </>
   );
 }
