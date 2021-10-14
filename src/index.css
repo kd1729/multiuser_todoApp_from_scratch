@@ -37,6 +37,14 @@ body {
   margin-left: 40%;
 }
 
+.markTODO{
+  display: flex;
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-left: 40%;
+  text-decoration: line-through;
+}
+
 
 .myBtn{
   margin-left: 1rem;
