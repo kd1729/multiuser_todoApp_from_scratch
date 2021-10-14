@@ -1,18 +1,17 @@
 import React from "react";
 
 export default function TODOS(props) {
+  
   function Delete() {
     props.onDelete(props.id);
   }
 
   function MarkAsDone(e) {
-    if (e.target.innerText === "Marks As Done") {
-      props.onDone(props.id, true);
+    // true false no need
+    if (e.target.innerText === "Marks As Done")
       e.target.innerText = "Still Not Done";
-    } else {
-      props.onDone(props.id, false);
-      e.target.innerText = "Marks As Done";
-    }
+    else e.target.innerText = "Marks As Done";
+    props.onDone(props.id); 
   }
 
   return (

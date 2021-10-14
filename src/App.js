@@ -20,9 +20,10 @@ function App() {
     });
   }
 
-  const MarkTODO = (idx, done) => {
-    setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: true } : t)
-    )
+  function MarkTODO(idx) {
+    console.log(idx); 
+    setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: !t.checked } : t))
+    //true false no need, just use negation symbol
   }
 
   return (
@@ -34,10 +35,10 @@ function App() {
           <TODOS
             id={idx}
             key={idx}
-            val={t.content}
+            val={t.content} 
+            checked={t.checked} // new addition
             onDelete={DeleteTODO}
             onDone={MarkTODO}
-            checked={false}
           />
         );
       })}

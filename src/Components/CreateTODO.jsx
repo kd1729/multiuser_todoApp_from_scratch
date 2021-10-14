@@ -2,10 +2,9 @@ import React, { useState } from "react";
 
 export default function CreateTODO(props) {
 
-  const [todo, setTODO] = useState({content : " "});
+  const [todo, setTODO] = useState({content : "", checked : false});
 
   function handleChange(e){
-    // console.log(e.target);
     const {name, value} = e.target;
     setTODO(x => {
       return{
@@ -18,7 +17,8 @@ export default function CreateTODO(props) {
   function Add(e){
     props.onAdd(todo);
     setTODO({
-      content : "" 
+      content : "", 
+      checked : false
     });
   }
 
