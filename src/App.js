@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CreateTODO from "./Components/CreateTODO";
+import TODOS from "./Components/TODOS";
+
 
 function App() {
+  const [TODO, setTODO] = useState([]);
+
+  function AddTODO(newTODO) {
+    setTODO( prev => {
+      return [...prev, newTODO];
+    });
+  }
+
+  function DeleteTODO(idx) {
+    setTODO( prev => {
+      return prev.filter((item, id) => {
+        return id !== idx;
+      });
+    });
+  }
+
+  function MarkTODO(idx, done) {
+    
+      // complete it
+      
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CreateTODO onAdd={AddTODO} />
+
+      {TODO.map((t, idx) => {
+        return (
+          <TODOS
+            id={idx}
+            key={idx}
+            val={t.content}
+            onDelete={DeleteTODO}
+            onDone={MarkTODO}
+          />
+        );
+      })}
+
+    </>
   );
 }
-
 export default App;

@@ -1,13 +1,64 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: black;
+  /* background-image: url("./todo-app-main/images/bg-desktop-dark.jpg"); */
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  max-width: 100vw;
+  max-height: 100vh;
+  color: aliceblue;
+}
+
+.createTODO {
+  display: flex;
+  margin: 10rem auto;
+  margin-left: 40%;
+}
+
+.createNewTODO, .displayNewTODO {
+  background-color: rgb(82, 80, 80);
+  color: white;
+  width: 300px;
+  padding-left: 1rem;
+  line-height: 50px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  outline: none;
+}
+
+.displayTODO{
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 40%;
+}
+
+
+.myBtn{
+  margin-left: 1rem;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  background-color: rgb(26, 24, 24);
+  color: blanchedalmond ;
+}
+
+.myBtn:hover{
+  cursor: pointer;
+  background-color: rgb(61, 55, 55);
+}
+
+
+
+
+.attribution {
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
