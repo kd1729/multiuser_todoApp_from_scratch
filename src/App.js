@@ -7,13 +7,13 @@ function App() {
   const [TODO, setTODO] = useState([]);
 
   function AddTODO(newTODO) {
-    setTODO( prev => {
+    setTODO(prev => {
       return [...prev, newTODO];
     });
   }
 
   function DeleteTODO(idx) {
-    setTODO( prev => {
+    setTODO(prev => {
       return prev.filter((item, id) => {
         return id !== idx;
       });
@@ -21,9 +21,7 @@ function App() {
   }
 
   const MarkTODO = (idx, done) => {
-    console.log(idx)
-    setTODO(TODO.map((t,id) => id === idx
-    ? {...t, checked: !t.checked  } : t)
+    setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: true } : t)
     )
   }
 
@@ -39,7 +37,7 @@ function App() {
             val={t.content}
             onDelete={DeleteTODO}
             onDone={MarkTODO}
-            checked
+            checked={false}
           />
         );
       })}
