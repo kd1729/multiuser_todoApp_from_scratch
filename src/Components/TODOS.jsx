@@ -14,10 +14,10 @@ import React from "react";
 
 
 
-const TODOS = ({id, val, onDone, checkHandler, onDelete}) => {
+const TODOS = (props) => {
 
     const itemCheckHandler = () => {
-      checkHandler (val.id);
+      props.checkHandler(props.id);
     };
 
 
@@ -25,11 +25,11 @@ const TODOS = ({id, val, onDone, checkHandler, onDelete}) => {
       <div className="displayTODO">
         {/* <div className={`displayNewTODO  ${props.checked ? "markTODO" : ""}`}> */}
         <div className="displayNewTODO" style={{
-            textDecoration: val.checked ? 'line-through' : 'none',
+            textDecoration: props.checked ? 'line-through' : 'none',
           }}>
-          {val}
+          {props.val}
         </div>
-        <button className="myBtn" onClick={() => onDelete(id)}>
+        <button className="myBtn" onClick={() => props.onDelete(props.id)}>
           Delete
         </button>
         <button className="myBtn" onClick={itemCheckHandler}>
