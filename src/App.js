@@ -21,8 +21,9 @@ function App() {
   }
 
   function MarkTODO(idx) {
-    console.log(idx); 
-    setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: !t.checked } : t))
+    
+    // setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: !t.checked } : t))
+    setTODO(TODO.map(t => console.log(t) ))
     //true false no need, just use negation symbol
   }
 
