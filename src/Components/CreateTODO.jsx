@@ -36,7 +36,7 @@ export default function CreateTODO(props) {
         placeholder="Create a new TODO..."
         onChange = {handleChange}
       />
-      <button className="myBtn" onClick={Add}>
+      <button className="myBtnAdd" onClick={Add}>
         ADD
       </button>
     </div>

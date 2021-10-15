@@ -9,16 +9,14 @@ const TODOS = (props) => {
       >
         {props.val}
       </div>
-      <button className="myBtn" onClick={() => props.onDelete(props.id)}>
+      <button className="myBtnDelete" onClick={() => props.onDelete(props.id)}>
         Delete
       </button>
-      <button className="myBtn" onClick={() => props.onDone(props.id)}>
+      <button className="myBtnDone" onClick={() => props.onDone(props.id)}>
         Mark As Done
       </button>
     </div>
   );
-
 };
-
 
 export default TODOS;
