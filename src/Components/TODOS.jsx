@@ -12,7 +12,7 @@ const TODOS = (props) => {
       <button className="myBtn" onClick={() => props.onDelete(props.id)}>
         Delete
       </button>
-      <button className="myBtn" onClick={() => props.onDone(props.val)}>
+      <button className="myBtn" onClick={() => props.onDone(props.id)}>
         Mark As Done
       </button>
     </div>

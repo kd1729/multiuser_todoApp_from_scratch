@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { nanoid } from 'nanoid';
 
 export default function CreateTODO(props) {
 
-  const [todo, setTODO] = useState({content : "", checked : false});
+  const [todo, setTODO] = useState({id : nanoid(), content : "", checked : false});
 
   function handleChange(e){
     const {name, value} = e.target;
