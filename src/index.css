@@ -6,21 +6,23 @@
 
 body {
   background-color: black;
-  background-image: url("https://th.bing.com/th/id/OIP.LhOt9xoHNkB4euLKIpja0wHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7"); 
+  background-image: url("https://th.bing.com/th/id/OIP.LhOt9xoHNkB4euLKIpja0wHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7");
   background-size: 100% auto;
   background-repeat: no-repeat;
   max-width: 100vw;
   max-height: 100vh;
   color: aliceblue;
+  display: grid;
+  place-items: center;
 }
 
 .createTODO {
   display: flex;
   margin: 10rem auto;
-  margin-left: 40%;
 }
 
-.createNewTODO, .displayNewTODO {
+.createNewTODO,
+.displayNewTODO {
   background-color: rgb(82, 80, 80);
   color: white;
   width: 400px;
@@ -31,50 +33,45 @@ body {
   outline: none;
 }
 
-.displayTODO{
+.displayTODO {
   display: flex;
-  margin-top: 1rem;
-  margin-left: 40%;
+  margin-top: 1rem; 
 }
 
-.markTODO{
+.markTODO {
   text-decoration: line-through;
 }
 
-
-.myBtnDone, .myBtnAdd, .myBtnDelete{
+.myBtnDone,
+.myBtnAdd,
+.myBtnDelete {
   margin-left: 1rem;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 1.5rem;
-  background-color: rgb(133, 224, 7);
-  color: rgb(7, 73, 255) ;
 }
 
-.myBtnAdd{
+.myBtnAdd {
   background-color: rgb(105, 254, 217);
-  color: rgb(11, 11, 11) ;
+  color: rgb(11, 11, 11);
 }
 
-.myBtnDelete{
+.myBtnDelete {
   background-color: rgb(224, 7, 7);
-  color: rgb(255, 247, 7) ;
+  color: rgb(255, 247, 7);
 }
 
-.myBtnDelete:hover{
+.myBtnDelete:hover {
   cursor: pointer;
   background-color: rgb(245, 61, 61);
 }
 
-.myBtnDone:hover{
+.myBtnDone:hover {
   cursor: pointer;
   background-color: rgb(120, 243, 96);
 }
 
-.myBtnAdd:hover{
+.myBtnAdd:hover {
   cursor: pointer;
   background-color: rgb(134, 194, 209);
 }
-
-
-

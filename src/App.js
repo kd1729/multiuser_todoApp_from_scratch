@@ -22,8 +22,8 @@ function App() {
 
 
   const checkHandler = id => {
-    setTODO (
-      TODO.map (t => {
+    setTODO(
+      TODO.map(t => {
         if (t.id === id)
           t.checked = !t.checked;
         return t;
@@ -35,12 +35,12 @@ function App() {
     <>
       <CreateTODO onAdd={AddTODO} />
 
-      {TODO.map( t => {
+      {TODO.map(t => {
         return (
           <TODOS
             id={t.id}
             key={t.id}
-            val={t.content} 
+            val={t.content}
             checked={t.checked} // new addition
             onDelete={DeleteTODO}
             onDone={checkHandler}

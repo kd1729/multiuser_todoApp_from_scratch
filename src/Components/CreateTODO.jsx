@@ -1,40 +1,42 @@
 import React, { useState } from "react";
-import { nanoid } from 'nanoid';
+import { nanoid } from "nanoid";
 
 export default function CreateTODO(props) {
+  const [todo, setTODO] = useState({
+    id: nanoid(),
+    content: "",
+    checked: false,
+  });
 
-  const [todo, setTODO] = useState({id : nanoid(), content : "", checked : false});
-
-  function handleChange(e){
-    const {name, value} = e.target;
-    setTODO(x => {
-      return{
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setTODO((x) => {
+      return {
         ...todo,
-        [name] : value
+        [name]: value,
       };
     });
   }
 
-  function Add(e){
+  function Add(e) {
     props.onAdd(todo);
     setTODO({
-      content : "", 
-      checked : false
+      content: "",
+      checked: false,
+      id: nanoid(),
     });
   }
-
-
 
   return (
     <div className="createTODO">
       <input
-        name = "content"
-        value = {todo.content}
+        name="content"
+        value={todo.content}
         id="createNewTODO"
         className="createNewTODO"
         type="text"
         placeholder="Create a new TODO..."
-        onChange = {handleChange}
+        onChange={handleChange}
       />
       <button className="myBtnAdd" onClick={Add}>
         ADD

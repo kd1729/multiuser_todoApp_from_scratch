@@ -1,4 +1,11 @@
 const TODOS = (props) => {
+  function MarkAsDone(e) {
+    if (e.target.innerText === "Mark As Done")
+      e.target.innerText = "Still Not Done";
+    else e.target.innerText = "Mark As Done";
+    props.onDone(props.id);
+  }
+
   return (
     <div className="displayTODO">
       <div
@@ -12,7 +19,14 @@ const TODOS = (props) => {
       <button className="myBtnDelete" onClick={() => props.onDelete(props.id)}>
         Delete
       </button>
-      <button className="myBtnDone" onClick={() => props.onDone(props.id)}>
+      <button
+        className="myBtnDone"
+        onClick={MarkAsDone}
+        style={{
+          backgroundColor: props.checked ? "pink" : "green",
+          color: props.checked ? "black" : "white",
+        }}
+      >
         Mark As Done
       </button>
     </div>
