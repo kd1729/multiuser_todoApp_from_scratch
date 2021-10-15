@@ -14,8 +14,8 @@ function App() {
 
   function DeleteTODO(idx) {
     setTODO(prev => {
-      return prev.filter((item, id) => {
-        return id !== idx;
+      return prev.filter(item => {
+        return item.id !== idx;
       });
     });
   }
