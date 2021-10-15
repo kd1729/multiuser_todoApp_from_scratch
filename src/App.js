@@ -20,12 +20,23 @@ function App() {
     });
   }
 
-  function MarkTODO(idx) {
+  // function MarkTODO(idx) {
     
-    // setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: !t.checked } : t))
-    setTODO(TODO.map(t => console.log(t) ))
-    //true false no need, just use negation symbol
-  }
+  //   // setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: !t.checked } : t))
+  //   setTODO(TODO.map(t => console.log(t) ))
+  //   //true false no need, just use negation symbol
+  // }
+
+  const checkHandler = id => {
+    setTODO (
+      TODO.map (t => {
+        if (t.id === id) {
+          t.checked = !t.checked;
+        }
+        return t;
+      }),
+    );
+  };
 
   return (
     <>
@@ -39,7 +50,7 @@ function App() {
             val={t.content} 
             checked={t.checked} // new addition
             onDelete={DeleteTODO}
-            onDone={MarkTODO}
+            onDone={checkHandler}
           />
         );
       })}
