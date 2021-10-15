@@ -20,19 +20,12 @@ function App() {
     });
   }
 
-  // function MarkTODO(idx) {
-    
-  //   // setTODO(TODO.map(t => t.id === idx  ? { ...t, checked: !t.checked } : t))
-  //   setTODO(TODO.map(t => console.log(t) ))
-  //   //true false no need, just use negation symbol
-  // }
 
-  const checkHandler = id => {
+  const checkHandler = val => {
     setTODO (
       TODO.map (t => {
-        if (t.id === id) {
+        if (t.content === val)
           t.checked = !t.checked;
-        }
         return t;
       }),
     );
