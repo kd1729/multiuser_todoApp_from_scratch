@@ -28,14 +28,14 @@ function App() {
   // }
 
   const checkHandler = id => {
-    this.setTODO ({
-      items: this.state.items.map (t => {
+    setTODO (
+      TODO.map (t => {
         if (t.id === id) {
           t.checked = !t.checked;
         }
         return t;
       }),
-    });
+    );
   };
 
   return (

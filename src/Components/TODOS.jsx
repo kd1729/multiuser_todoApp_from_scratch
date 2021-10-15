@@ -17,7 +17,7 @@ import React from "react";
 const TODOS = (props) => {
 
     const itemCheckHandler = () => {
-      props.checkHandler(props.id);
+      props.onDone();
     };
 
 
