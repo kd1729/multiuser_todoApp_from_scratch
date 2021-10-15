@@ -41,6 +41,7 @@ function App() {
             id={t.id}
             key={t.id}
             val={t.content}
+            time={t.timeLimit}
             checked={t.checked} // new addition
             onDelete={DeleteTODO}
             onDone={checkHandler}

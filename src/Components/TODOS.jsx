@@ -14,7 +14,9 @@ const TODOS = (props) => {
           textDecoration: props.checked ? "line-through" : "none",
         }}
       >
-        {props.val}
+        {props.val} 
+        <div className="displayTime">{props.time}</div>
+      
       </div>
       <button className="myBtnDelete" onClick={() => props.onDelete(props.id)}>
         Delete
