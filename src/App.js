@@ -71,25 +71,27 @@ function App() {
       <CreateTODO onAdd={AddTODO} />
 
       {TODO.map(t => {
-        return (
-          <TODOS
-            id={t.id}
-            key={t.id}
-            val={t.content}
-            time={t.timeLimit}
-            checked={t.checked}
-            completed={t.completed}
-            pending={t.pending}
-            onDelete={DeleteTODO}
-            onDone={checkHandler}
-          />
-        );
+        if(TODO.length > 0)
+            return (
+              <TODOS
+                key={t.id}
+                id={t.id}
+                val={t.content}
+                time={t.timeLimit}
+                checked={t.checked}
+                completed={t.completed}
+                pending={t.pending}
+                onDelete={DeleteTODO}
+                onDone={checkHandler}
+              />
+            );
+        return  <div className="noTodosLeft"> No Todos Left ! </div>;
       })}
 
       <div className="filter-buttons">
         <button className="displayPending" onClick={displayPending}>Show Pending</button>
-        <button className="displayAll" onClick={displayAll}>Show All</button>
         <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
+        <button className="displayAll" onClick={displayAll}>Show All</button>
       </div>
 
     </>

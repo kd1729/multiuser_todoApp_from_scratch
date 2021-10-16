@@ -1,4 +1,6 @@
-const TODOS = (props) => {
+
+export default function TODOS(props) {
+
   function MarkAsDone(e) {
     if (e.target.innerText === "Mark As Done")
       e.target.innerText = "Still Not Done";
@@ -7,11 +9,11 @@ const TODOS = (props) => {
   }
 
   return (
-    <div className="displayTODO" 
-    style={{
-      display: (props.completed || !props.pending) ? "none" : "block",
-    }}
-    
+    <div
+      className="displayTODO"
+      style={{
+        display: props.completed || !props.pending ? "none" : "flex",
+      }}
     >
       <div
         className="displayNewTODO"
@@ -19,9 +21,8 @@ const TODOS = (props) => {
           textDecoration: props.checked ? "line-through" : "none",
         }}
       >
-        {props.val} 
+        {props.val}
         <div className="displayTime">{props.time}</div>
-      
       </div>
       <button className="myBtnDelete" onClick={() => props.onDelete(props.id)}>
         Delete
@@ -31,13 +32,17 @@ const TODOS = (props) => {
         onClick={MarkAsDone}
         style={{
           backgroundColor: props.checked ? "pink" : "green",
-          color: props.checked ? "black" : "white",
+          color: props.checked ? "red" : "white",
         }}
       >
         Mark As Done
       </button>
     </div>
   );
+}
+
+TODOS.defaultProps = {
+  val: "hello",
+  time: "king",
 };
 
-export default TODOS;

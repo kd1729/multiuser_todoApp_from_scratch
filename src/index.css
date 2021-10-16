@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Monda&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Monda", sans-serif;
+  outline: none;
 }
 
 body {
@@ -16,8 +20,12 @@ body {
   place-items: center;
 }
 
+.noTodosLeft {
+  font-size: 5rem;
+  color: azure;
+}
+
 .createTODO {
-  display: flex;
   margin: 10rem auto;
 }
 
@@ -30,26 +38,25 @@ body {
   padding-left: 1rem;
   font-size: 2rem;
   border-radius: 10px;
-  outline: none;
 }
-
-.timeLimit{
+.timeLimit {
   width: 200px;
-  font-size: 1.4rem;
   margin-left: 1.4rem;
 }
-
 .displayTODO {
-  display: flex;
-  margin-top: 1rem; 
+  margin-top: 2rem;
   font-size: 3rem;
 }
-.displayTime{
-  padding-top: 0.5rem;
-  font-size: 1.5rem;
-  color:rgb(251, 211, 211);
+
+.displayNewTODO {
+  width: 300px;
 }
 
+.displayTime {
+  padding-top: 0rem;
+  font-size: 1.5rem;
+  color: rgb(251, 211, 211);
+}
 
 .markTODO {
   text-decoration: line-through;
@@ -60,17 +67,24 @@ body {
 .myBtnDelete {
   margin-left: 1rem;
   border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 1.5rem;
+  padding: 10px 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 200px;
 }
 
-.myBtnDone{
-  width: 200px;
+.myBtnDone {
+  width: 300px;
 }
 
 .myBtnAdd {
   background-color: rgb(105, 254, 217);
   color: rgb(11, 11, 11);
+}
+
+.myBtnAdd:hover {
+  cursor: pointer;
+  background-color: rgb(134, 194, 209);
 }
 
 .myBtnDelete {
@@ -85,12 +99,6 @@ body {
 
 .myBtnDone:hover {
   cursor: pointer;
-  background-color: rgb(120, 243, 96);
-}
-
-.myBtnAdd:hover {
-  cursor: pointer;
-  background-color: rgb(134, 194, 209);
 }
 
 .filter-buttons {
@@ -98,33 +106,47 @@ body {
   height: 100px;
   width: 100%;
   justify-content: space-between;
-  margin-top: 20px;
-  
+  margin-top: 5rem;
 }
 
-.displayPending, .displayCompleted, .displayAll{
+.displayPending,
+.displayCompleted,
+.displayAll {
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 1.5rem;
-  width: 200px;
-  bottom: 3rem;
-  background-color:rgb(149, 240, 240);
+  margin: 1rem;
+  background-color: rgb(149, 240, 240);
   font-weight: bold;
-  color:rgb(52, 7, 255)
 }
 
-/* .displayCompleted{
-  right: 30%;
-} */
-.displayCompleted{
-  right: 24%;
+.displayPending {
+  background-color: rgb(255, 39, 39);
+  color: white;
+  width: 250px;
+}
+.displayCompleted {
+  background-color: rgb(22, 177, 8);
+  color: white;
+  width: 250px;
+}
+.displayAll {
+  background-color: rgb(27, 29, 29);
+  color: white;
 }
 
-.displayAll{
-  right: 40%;
-}
-
-.displayPending:hover, .displayCompleted:hover, .displayAll:hover{
+.displayPending:hover,
+.displayCompleted:hover,
+.displayAll:hover {
   cursor: pointer;
 }
 
+.displayPending:hover {
+  background-color: rgb(211, 62, 62);
+}
+.displayCompleted:hover {
+  background-color: rgb(70, 138, 64);
+}
+.displayAll:hover {
+  background-color: rgb(56, 59, 59);
+}
