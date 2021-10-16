@@ -32,19 +32,12 @@ function App() {
   };
 
   function displayPending(){
-    setTODO(prev => {
-      return prev.filter(item => {
-        return item.checked === false;
-      });
-    });
+    
   }
 
   function displayCompleted(){
-    setTODO(prev => {
-      return prev.filter(item => {
-        return item.checked === true;
-      });
-    });
+    
+    
   }
 
   return (
@@ -58,7 +51,7 @@ function App() {
             key={t.id}
             val={t.content}
             time={t.timeLimit}
-            checked={t.checked} // new addition
+            checked={t.checked} 
             onDelete={DeleteTODO}
             onDone={checkHandler}
           />
