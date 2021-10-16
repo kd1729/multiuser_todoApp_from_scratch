@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import CreateTODO from "./Components/CreateTODO";
 import TODOS from "./Components/TODOS";
 
@@ -20,6 +21,11 @@ function App() {
     });
   }
 
+  const history = useHistory()
+
+  const goBack =() => {
+    history.goBack()
+  }
 
   function checkHandler(id){
     setTODO(
@@ -32,12 +38,13 @@ function App() {
   };
 
   function displayPending(){
-    
+    setTODO(TODO.filter((t) => t.checked === false))
+     
   }
 
   function displayCompleted(){
-    
-    
+    goBack();
+    setTODO(TODO.filter((t) => t.checked === true))
   }
 
   function displayAll(){
