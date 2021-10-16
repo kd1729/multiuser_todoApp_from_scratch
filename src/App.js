@@ -33,8 +33,10 @@ function App() {
   function displayCompleted(){
     setTODO(
       TODO.map(t => {
+        t.completed = false;
+        t.pending = true;
         if (t.checked === false)
-          t.pending = true;
+          t.pending = false;
         return t;
       }),
     );
@@ -43,6 +45,8 @@ function App() {
   function displayPending(){
     setTODO(
       TODO.map(t => {
+        t.completed = false;
+        t.pending = true;
         if (t.checked === true)
           t.completed = true;
         return t;
@@ -55,6 +59,7 @@ function App() {
     setTODO(
       TODO.map(t => {
         t.completed = false;
+        t.pending = true;
         return t;
       }),
     );

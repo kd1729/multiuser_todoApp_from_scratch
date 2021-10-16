@@ -9,7 +9,7 @@ const TODOS = (props) => {
   return (
     <div className="displayTODO" 
     style={{
-      display: !props.completed ? "block" : "none",
+      display: (props.completed || !props.pending) ? "none" : "block",
     }}
     
     >
