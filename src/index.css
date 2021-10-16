@@ -116,8 +116,15 @@ body {
 /* .displayCompleted{
   right: 30%;
 } */
+.displayCompleted{
+  right: 24%;
+}
 
-.displayPending:hover, .displayCompleted:hover{
+.displayAll{
+  right: 40%;
+}
+
+.displayPending:hover, .displayCompleted:hover, .displayAll:hover{
   cursor: pointer;
 }
 

@@ -27,7 +27,7 @@ function App() {
     history.goBack()
   }
 
-  function checkHandler(id){
+  function checkHandler(id) {
     setTODO(
       TODO.map(t => {
         if (t.id === id)
@@ -49,6 +49,28 @@ function App() {
 
   function displayAll(){
 
+  function displayPending() {
+    setTODO(
+      TODO.map(t => {
+        return t.checked ? t : null;
+      }),
+    );
+  }
+
+  function displayCompleted() {
+    setTODO(
+      TODO.map(t => {
+        return !t.checked ? t : null;
+      }),
+    );
+  }
+
+  function displayAll() {
+    setTODO(
+      TODO.map(t => {
+        return t;
+      }),
+    );
   }
 
   return (
@@ -62,7 +84,7 @@ function App() {
             key={t.id}
             val={t.content}
             time={t.timeLimit}
-            checked={t.checked} 
+            checked={t.checked}
             onDelete={DeleteTODO}
             onDone={checkHandler}
           />
@@ -75,6 +97,9 @@ function App() {
         <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
       </div>
       
+      <button className="displayPending" onClick={displayPending}>Show Pending</button>
+      <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
+      <button className="displayAll" onClick={displayAll}>Show All</button>
 
 
     </>
