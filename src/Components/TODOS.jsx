@@ -7,7 +7,12 @@ const TODOS = (props) => {
   }
 
   return (
-    <div className="displayTODO">
+    <div className="displayTODO" 
+    style={{
+      display: !props.completed ? "block" : "none",
+    }}
+    
+    >
       <div
         className="displayNewTODO"
         style={{

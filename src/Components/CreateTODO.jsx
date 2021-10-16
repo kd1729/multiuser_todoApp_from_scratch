@@ -5,7 +5,9 @@ export default function CreateTODO(props) {
   const [todo, setTODO] = useState({
     id: nanoid(),
     content: "",
-    timeLimit : "",
+    timeLimit: "",
+    completed: false,
+    pending: true,
     checked: false,
   });
 
@@ -19,14 +21,15 @@ export default function CreateTODO(props) {
     });
   }
 
-
   function Add(e) {
     props.onAdd(todo);
     setTODO({
       content: "",
       checked: false,
+      completed: false,
+      pending: true,
       timeLimit: "",
-      id: nanoid()
+      id: nanoid(),
     });
   }
 
@@ -40,7 +43,7 @@ export default function CreateTODO(props) {
         type="text"
         placeholder="Create a new TODO..."
         onChange={handleChange}
-      /> 
+      />
       <input
         name="timeLimit"
         value={todo.timeLimit}

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import CreateTODO from "./Components/CreateTODO";
 import TODOS from "./Components/TODOS";
 
@@ -21,12 +20,6 @@ function App() {
     });
   }
 
-  const history = useHistory()
-
-  const goBack =() => {
-    history.goBack()
-  }
-
   function checkHandler(id) {
     setTODO(
       TODO.map(t => {
@@ -37,41 +30,36 @@ function App() {
     );
   };
 
-  function displayPending(){
-    setTODO(TODO.filter((t) => t.checked === false))
-     
-  }
-
   function displayCompleted(){
-    goBack();
-    setTODO(TODO.filter((t) => t.checked === true))
-  }
-
-  function displayAll(){
-
-  function displayPending() {
     setTODO(
       TODO.map(t => {
-        return t.checked ? t : null;
+        if (t.checked === false)
+          t.pending = true;
+        return t;
       }),
     );
   }
 
-  function displayCompleted() {
+  function displayPending(){
     setTODO(
       TODO.map(t => {
-        return !t.checked ? t : null;
+        if (t.checked === true)
+          t.completed = true;
+        return t;
       }),
     );
+    
   }
 
   function displayAll() {
     setTODO(
       TODO.map(t => {
+        t.completed = false;
         return t;
       }),
     );
   }
+
 
   return (
     <>
@@ -85,6 +73,8 @@ function App() {
             val={t.content}
             time={t.timeLimit}
             checked={t.checked}
+            completed={t.completed}
+            pending={t.pending}
             onDelete={DeleteTODO}
             onDone={checkHandler}
           />
@@ -96,11 +86,6 @@ function App() {
         <button className="displayAll" onClick={displayAll}>Show All</button>
         <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
       </div>
-      
-      <button className="displayPending" onClick={displayPending}>Show Pending</button>
-      <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
-      <button className="displayAll" onClick={displayAll}>Show All</button>
-
 
     </>
   );
