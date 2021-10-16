@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import CreateTODO from "./Components/CreateTODO";
 import TODOS from "./Components/TODOS";
 
@@ -20,6 +21,11 @@ function App() {
     });
   }
 
+  const history = useHistory()
+
+  const goBack =() => {
+    history.goBack()
+  }
 
   function checkHandler(id) {
     setTODO(
@@ -30,6 +36,18 @@ function App() {
       }),
     );
   };
+
+  function displayPending(){
+    setTODO(TODO.filter((t) => t.checked === false))
+     
+  }
+
+  function displayCompleted(){
+    goBack();
+    setTODO(TODO.filter((t) => t.checked === true))
+  }
+
+  function displayAll(){
 
   function displayPending() {
     setTODO(
@@ -73,6 +91,12 @@ function App() {
         );
       })}
 
+      <div className="filter-buttons">
+        <button className="displayPending" onClick={displayPending}>Show Pending</button>
+        <button className="displayAll" onClick={displayAll}>Show All</button>
+        <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
+      </div>
+      
       <button className="displayPending" onClick={displayPending}>Show Pending</button>
       <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
       <button className="displayAll" onClick={displayAll}>Show All</button>
