@@ -1,6 +1,4 @@
-
 export default function TODOS(props) {
-
   function MarkAsDone(e) {
     if (e.target.innerText === "Mark As Done")
       e.target.innerText = "Still Not Done";
@@ -22,7 +20,14 @@ export default function TODOS(props) {
         }}
       >
         {props.val}
-        <div className="displayTime">{props.time}</div>
+        <div
+          className="displayTime"
+          style={{
+            textDecoration: props.checked ? "line-through" : "none",
+          }}
+        >
+          {props.time}
+        </div>
       </div>
       <button className="myBtnDelete" onClick={() => props.onDelete(props.id)}>
         Delete
@@ -45,4 +50,3 @@ TODOS.defaultProps = {
   val: "hello",
   time: "king",
 };
-
