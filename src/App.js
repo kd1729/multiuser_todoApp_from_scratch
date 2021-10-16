@@ -21,7 +21,7 @@ function App() {
   }
 
 
-  const checkHandler = id => {
+  function checkHandler(id){
     setTODO(
       TODO.map(t => {
         if (t.id === id)
@@ -30,6 +30,22 @@ function App() {
       }),
     );
   };
+
+  function displayPending(){
+    setTODO(prev => {
+      return prev.filter(item => {
+        return item.checked === false;
+      });
+    });
+  }
+
+  function displayCompleted(){
+    setTODO(prev => {
+      return prev.filter(item => {
+        return item.checked === true;
+      });
+    });
+  }
 
   return (
     <>
@@ -48,6 +64,10 @@ function App() {
           />
         );
       })}
+
+      <button className="displayPending" onClick={displayPending}>Show Pending</button>
+      <button  className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
+
 
     </>
   );
