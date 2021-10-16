@@ -93,22 +93,29 @@ body {
   background-color: rgb(134, 194, 209);
 }
 
+.filter-buttons {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+  
+}
 
-.displayPending, .displayCompleted{
+.displayPending, .displayCompleted, .displayAll{
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 1.5rem;
-  width: 250px;
-  position: absolute;
+  width: 200px;
   bottom: 3rem;
   background-color:rgb(149, 240, 240);
   font-weight: bold;
   color:rgb(52, 7, 255)
 }
 
-.displayCompleted{
+/* .displayCompleted{
   right: 30%;
-}
+} */
 
 .displayPending:hover, .displayCompleted:hover{
   cursor: pointer;

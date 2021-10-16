@@ -40,6 +40,10 @@ function App() {
     
   }
 
+  function displayAll(){
+
+  }
+
   return (
     <>
       <CreateTODO onAdd={AddTODO} />
@@ -58,8 +62,12 @@ function App() {
         );
       })}
 
-      <button className="displayPending" onClick={displayPending}>Show Pending</button>
-      <button  className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
+      <div className="filter-buttons">
+        <button className="displayPending" onClick={displayPending}>Show Pending</button>
+        <button className="displayAll" onClick={displayAll}>Show All</button>
+        <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
+      </div>
+      
 
 
     </>
