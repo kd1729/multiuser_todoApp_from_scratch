@@ -42,13 +42,14 @@ body {
 .timeLimit {
   width: 200px;
   margin-left: 1.4rem;
+  font-size: 1.5rem;
 }
 .displayTODO {
   margin-top: 2rem;
 }
 
 .displayNewTODO {
-  width: 300px;
+  width: 500px;
   min-height: 4rem;
   font-size: 2.5rem;
   position: relative;
