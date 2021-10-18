@@ -20,6 +20,10 @@ body {
   place-items: center;
 }
 
+.MainDiv{
+  width: 55rem;
+}
+
 .noTodosLeft {
   font-size: 5rem;
   color: azure;
@@ -45,11 +49,11 @@ body {
   font-size: 1.5rem;
 }
 .displayTODO {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .displayNewTODO {
-  width: 500px;
+  width: 400px;
   min-height: 4rem;
   font-size: 2.5rem;
   position: relative;
@@ -61,7 +65,7 @@ body {
   position: absolute;
   right: 1rem;
   top: 10%;
-  
+ 
 }
 
 .markTODO {
@@ -155,4 +159,15 @@ body {
 }
 .displayAll:hover {
   background-color: rgb(56, 59, 59);
+}
+
+.author{
+  font-size: 2rem;
+  text-align: center;
+  color: aqua;
+  margin-top: 1rem;
+}
+
+a {
+  color: inherit;
 }

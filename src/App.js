@@ -30,7 +30,7 @@ function App() {
     );
   };
 
-  function displayCompleted(){
+  function displayCompleted() {
     setTODO(
       TODO.map(t => {
         t.completed = false;
@@ -42,7 +42,7 @@ function App() {
     );
   }
 
-  function displayPending(){
+  function displayPending() {
     setTODO(
       TODO.map(t => {
         t.completed = false;
@@ -52,7 +52,7 @@ function App() {
         return t;
       }),
     );
-    
+
   }
 
   function displayAll() {
@@ -67,25 +67,31 @@ function App() {
 
 
   return (
-    <>
+    <div className="MainDiv">
+
+      <div className="author">
+        Made with ❤ by <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">@onlykingKD</a>
+      </div>
+
       <CreateTODO onAdd={AddTODO} />
 
+      {(TODO.length === 0) ?
+        <div className="noTodosLeft"> No Todos Left ! </div> : null}
+
       {TODO.map(t => {
-        if(TODO.length > 0)
-            return (
-              <TODOS
-                key={t.id}
-                id={t.id}
-                val={t.content}
-                time={t.timeLimit}
-                checked={t.checked}
-                completed={t.completed}
-                pending={t.pending}
-                onDelete={DeleteTODO}
-                onDone={checkHandler}
-              />
-            );
-        return  <div className="noTodosLeft"> No Todos Left ! </div>;
+        return (
+          <TODOS
+            key={t.id}
+            id={t.id}
+            val={t.content}
+            time={t.timeLimit}
+            checked={t.checked}
+            completed={t.completed}
+            pending={t.pending}
+            onDelete={DeleteTODO}
+            onDone={checkHandler}
+          />
+        );
       })}
 
       <div className="filter-buttons">
@@ -94,7 +100,7 @@ function App() {
         <button className="displayAll" onClick={displayAll}>Show All</button>
       </div>
 
-    </>
+    </div>
   );
 }
 export default App;
