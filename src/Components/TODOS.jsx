@@ -36,8 +36,7 @@ export default function TODOS(props) {
         className="myBtnDone"
         onClick={MarkAsDone}
         style={{
-          backgroundColor: props.checked ? "pink" : "green",
-          color: props.checked ? "red" : "white",
+          backgroundColor: props.checked ? "#A03C78" : "#4E9F3D",
         }}
       >
         Mark As Done

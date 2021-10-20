@@ -65,6 +65,14 @@ function App() {
     );
   }
 
+  function deleteCompleted() {
+    setTODO(prev => {
+      return prev.filter(item => {
+        return item.checked === false;
+      });
+    });
+  }
+
 
   return (
     <div className="MainDiv">
@@ -98,6 +106,7 @@ function App() {
         <button className="displayPending" onClick={displayPending}>Show Pending</button>
         <button className="displayCompleted" onClick={displayCompleted}>Show Completed</button>
         <button className="displayAll" onClick={displayAll}>Show All</button>
+        <button className="deleteCompleted" onClick={deleteCompleted}>Delete Completed</button>
       </div>
 
     </div>

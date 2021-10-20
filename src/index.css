@@ -6,31 +6,34 @@
   box-sizing: border-box;
   font-family: "Monda", sans-serif;
   outline: none;
+  border: none;
 }
 
 body {
   background-color: black;
-  background-image: url("https://th.bing.com/th/id/OIP.LhOt9xoHNkB4euLKIpja0wHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7");
+  background-image: url("https://getwallpapers.com/wallpaper/full/1/7/5/44235.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
   max-width: 100vw;
   max-height: 100vh;
   color: aliceblue;
-  display: grid;
-  place-items: center;
+  margin-left: 2rem;
+  /* display: grid;
+  place-items: center; */
 }
 
-.MainDiv{
-  width: 55rem;
+.MainDiv {
+  width: 53rem;
 }
 
 .noTodosLeft {
   font-size: 5rem;
   color: azure;
+  text-align: center;
 }
 
 .createTODO {
-  margin: 10rem auto;
+  margin: 3rem auto;
 }
 
 .createNewTODO,
@@ -40,7 +43,7 @@ body {
   color: white;
   width: 400px;
   padding-left: 1rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   border-radius: 10px;
 }
 .timeLimit {
@@ -53,43 +56,37 @@ body {
 }
 
 .displayNewTODO {
-  width: 400px;
+  width: 450px;
   min-height: 4rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  line-height: 4rem;
   position: relative;
 }
 
 .displayTime {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(251, 211, 211);
   position: absolute;
   right: 1rem;
-  top: 10%;
- 
+  top: 0%; 
 }
 
-.markTODO {
-  text-decoration: line-through;
-}
 
 .myBtnDone,
 .myBtnAdd,
 .myBtnDelete {
   margin-left: 1rem;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px;
   font-size: 1.2rem;
   font-weight: bold;
   width: 200px;
 }
 
-.myBtnDone {
-  width: 300px;
-}
 
 .myBtnAdd {
-  background-color: rgb(105, 254, 217);
-  color: rgb(11, 11, 11);
+  background-color: #22577A;
+  color: white;
 }
 
 .myBtnAdd:hover {
@@ -98,14 +95,20 @@ body {
 }
 
 .myBtnDelete {
-  background-color: rgb(224, 7, 7);
-  color: rgb(255, 247, 7);
+  background-color: #EA5455;
+  color: white;
 }
 
 .myBtnDelete:hover {
   cursor: pointer;
   background-color: rgb(245, 61, 61);
 }
+
+.myBtnDone {
+  width: 250px;
+  color: white;
+}
+
 
 .myBtnDone:hover {
   cursor: pointer;
@@ -121,47 +124,36 @@ body {
 
 .displayPending,
 .displayCompleted,
+.deleteCompleted,
 .displayAll {
   border-radius: 10px;
   padding: 10px 20px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 1rem;
-  background-color: rgb(149, 240, 240);
   font-weight: bold;
+  background-color: #867AE9;
+  color: white;
 }
 
-.displayPending {
-  background-color: rgb(255, 39, 39);
-  color: white;
-  width: 250px;
-}
-.displayCompleted {
-  background-color: rgb(22, 177, 8);
-  color: white;
-  width: 250px;
-}
-.displayAll {
-  background-color: rgb(27, 29, 29);
-  color: white;
+.deleteCompleted {
+  background-color: #FF4646;
+  color: white  ;
 }
 
 .displayPending:hover,
 .displayCompleted:hover,
+.deleteCompleted:hover,
 .displayAll:hover {
   cursor: pointer;
-}
-
-.displayPending:hover {
-  background-color: rgb(211, 62, 62);
-}
-.displayCompleted:hover {
-  background-color: rgb(70, 138, 64);
-}
-.displayAll:hover {
   background-color: rgb(56, 59, 59);
 }
 
-.author{
+.deleteCompleted:hover {
+  background-color: rgb(253, 2, 2);
+}
+
+
+.author {
   font-size: 2rem;
   text-align: center;
   color: aqua;
