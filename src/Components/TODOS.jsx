@@ -44,8 +44,3 @@ export default function TODOS(props) {
     </div>
   );
 }
-
-TODOS.defaultProps = {
-  val: "hello",
-  time: "king",
-};

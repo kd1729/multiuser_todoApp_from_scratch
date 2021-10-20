@@ -68,9 +68,8 @@ body {
   color: rgb(251, 211, 211);
   position: absolute;
   right: 1rem;
-  top: 0%; 
+  top: 0%;
 }
-
 
 .myBtnDone,
 .myBtnAdd,
@@ -83,9 +82,8 @@ body {
   width: 200px;
 }
 
-
 .myBtnAdd {
-  background-color: #22577A;
+  background-color: #22577a;
   color: white;
 }
 
@@ -95,7 +93,7 @@ body {
 }
 
 .myBtnDelete {
-  background-color: #EA5455;
+  background-color: #ea5455;
   color: white;
 }
 
@@ -108,7 +106,6 @@ body {
   width: 250px;
   color: white;
 }
-
 
 .myBtnDone:hover {
   cursor: pointer;
@@ -131,13 +128,13 @@ body {
   font-size: 1.2rem;
   margin: 1rem;
   font-weight: bold;
-  background-color: #867AE9;
+  background-color: #867ae9;
   color: white;
 }
 
 .deleteCompleted {
-  background-color: #FF4646;
-  color: white  ;
+  background-color: #ff4646;
+  color: white;
 }
 
 .displayPending:hover,
@@ -152,7 +149,6 @@ body {
   background-color: rgb(253, 2, 2);
 }
 
-
 .author {
   font-size: 2rem;
   text-align: center;
@@ -162,4 +158,11 @@ body {
 
 a {
   color: inherit;
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    background-color: black;
+    background-image: url("");
+  }
 }
