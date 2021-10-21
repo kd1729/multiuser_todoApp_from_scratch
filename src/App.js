@@ -78,7 +78,7 @@ function App() {
     <div className="MainDiv">
 
       <div className="author">
-        Made with ❤ by <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">@onlykingKD</a>
+        Made with ❤ by <a href="https://github.com/onlykingKD/todoApp_from_scratch">@onlykingKD</a>
       </div>
 
       <CreateTODO onAdd={AddTODO} />
