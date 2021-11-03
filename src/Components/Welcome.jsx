@@ -1,43 +1,38 @@
 import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "./Firebase";
-import {
-  collection,
-  doc,
-  setDoc,
-  query,
-  getDocs,
-  where,
-} from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { query, getDocs, where } from "firebase/firestore";
 import { nanoid } from "nanoid";
-import { Link } from "react-router-dom";
+import { Link, useHistory,Redirect } from "react-router-dom";
+import Login from "./Login";
 
 const auth = getAuth();
 const usersRef = collection(db, "users");
 
-async function submitForm(e) {
-  e.preventDefault();
-  const name = e.target.Name.value;
-  const email = e.target.Email.value;
-  const password = e.target.Password.value;
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-    //   const user = userCredential.user;
-      alert("Welcome " + name + " Signup Successful !");
-      setDoc(doc(usersRef, nanoid()), {
-        Name: name,
-        Email: email,
-        Password: password,
-      });
-    })
-    .catch((error) => {
-      alert("This email is already registerd ! Please Login.");
-    });
-  document.getElementById("form").reset();
-}
-
 const Welcome = () => {
+  async function submitForm(e) {
+    e.preventDefault();
+    const name = e.target.Name.value;
+    const email = e.target.Email.value;
+    const password = e.target.Password.value;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        // const user = userCredential.user;
+        alert("Welcome " + name + " Signup Successful !");
+        setDoc(doc(usersRef, nanoid()), {
+          Name: name,
+          Email: email,
+          Password: password,
+        });
+      })
+      .catch((error) => {
+        alert("This email is already registerd ! Please Login.");
+      });
+    document.getElementById("form").reset();
+  }
+
   return (
     <div className="welcome">
       <h1 className="Header">Sign Up Page</h1>
@@ -83,6 +78,7 @@ const Welcome = () => {
         <br />
         <input className="Submit" type="submit" value="Sign Up" /> <br />
       </form>
+      
     </div>
   );
 };
