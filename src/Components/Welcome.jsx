@@ -2,10 +2,10 @@ import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "./Firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
-import { query, getDocs, where } from "firebase/firestore";
+// import { query, getDocs, where } from "firebase/firestore";
 import { nanoid } from "nanoid";
-import { Link, useHistory,Redirect } from "react-router-dom";
-import Login from "./Login";
+// import { Link, useHistory,Redirect } from "react-router-dom";
+// import Login from "./Login";
 
 const auth = getAuth();
 const usersRef = collection(db, "users");

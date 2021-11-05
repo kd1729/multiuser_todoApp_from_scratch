@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreateTODO from "./Components/CreateTODO";
 import TODOS from "./Components/TODOS";
 import { db } from "./Components/Firebase";
-import { collection, doc, updateDoc } from "firebase/firestore";
+import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
 // import { deleteDoc, deleteField, query, where, getDocs } from "firebase/firestore";
 const usersRef = collection(db, "users");
+const user = doc(usersRef, "b1SmIWJnD5FP5R7LpNJw");
 
-const user = doc(usersRef, "cPtJy9hLJYeALKMGaQ8Tx");
 
 function App() {
   const [TODO, setTODO] = useState([]);
 
+  useEffect(() => {
+    getDoc(user).then((doc) => {
+      setTODO(doc.data().todos);
+    });
+  }, []);
+
   async function AddTODO(newTODO) {
+    
     await updateDoc(user, {
       todos: [...TODO, newTODO],
     });
@@ -85,6 +92,7 @@ function App() {
 
   return (
     <div className="MainDiv">
+      {console.log(user)}
       <div className="author">
         Made with ❤ by{" "}
         <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">
