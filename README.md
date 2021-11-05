@@ -20,5 +20,3 @@ https://admiring-bell-f1b577.netlify.app/
 
 
 
-*Special thanks to my roommate [Tanmay Misra ](https://github.com/primeTanM) for helping me out in this project.*
-
