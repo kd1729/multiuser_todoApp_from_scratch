@@ -2,8 +2,11 @@
 
 
 
-### Live Deployment Link
+### Live Deployment Link without firestore
 https://musing-galileo-621b67.netlify.app/
+
+### Live Deployment Link without firestore
+https://admiring-bell-f1b577.netlify.app/
 
 
 ### Key Features
