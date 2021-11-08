@@ -4,11 +4,11 @@ import TODOS from "./Components/TODOS";
 import { db } from "./Components/Firebase";
 import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
 // import { deleteDoc, deleteField, query, where, getDocs } from "firebase/firestore";
-const usersRef = collection(db, "users");
-const user = doc(usersRef, "b1SmIWJnD5FP5R7LpNJw");
-
 
 function App() {
+  const usersRef = collection(db, "users");
+  const user = doc(usersRef, "id");
+
   const [TODO, setTODO] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,6 @@ function App() {
   }, []);
 
   async function AddTODO(newTODO) {
-    
     await updateDoc(user, {
       todos: [...TODO, newTODO],
     });
@@ -29,8 +28,8 @@ function App() {
 
   async function DeleteTODO(idx) {
     await updateDoc(user, {
-      todos: [...TODO.filter((element) => element.id !== idx)],     
-   });
+      todos: [...TODO.filter((element) => element.id !== idx)],
+    });
     setTODO((prev) => {
       return prev.filter((item) => {
         return item.id !== idx;
@@ -81,8 +80,8 @@ function App() {
 
   async function deleteCompleted() {
     await updateDoc(user, {
-      todos: [...TODO.filter((element) => element.checked === false)],     
-   });
+      todos: [...TODO.filter((element) => element.checked === false)],
+    });
     setTODO((prev) => {
       return prev.filter((item) => {
         return item.checked === false;

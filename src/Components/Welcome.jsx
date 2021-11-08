@@ -3,34 +3,58 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "./Firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 // import { query, getDocs, where } from "firebase/firestore";
+import { useState } from "react";
 import { nanoid } from "nanoid";
-// import { Link, useHistory,Redirect } from "react-router-dom";
-// import Login from "./Login";
+import Login from "./Login";
+// import { Link, useHistory, Redirect } from "react-router-dom";
 
 const auth = getAuth();
 const usersRef = collection(db, "users");
 
 const Welcome = () => {
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+  });
+
   async function submitForm(e) {
     e.preventDefault();
+
+    const id = nanoid();
     const name = e.target.Name.value;
     const email = e.target.Email.value;
     const password = e.target.Password.value;
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
-        alert("Welcome " + name + " Signup Successful !");
-        setDoc(doc(usersRef, nanoid()), {
+        setUser(id);
+        alert("Welcome " + name + " Signup Successful ! Please Login now.");
+        setDoc(doc(usersRef, id), {
           Name: name,
           Email: email,
           Password: password,
+          id: id,
         });
       })
       .catch((error) => {
         alert("This email is already registerd ! Please Login.");
       });
     document.getElementById("form").reset();
+  }
+
+  if (user.id !== null) {
+    return (
+      <Login
+        id={user.id}
+        name={user.name}
+        email={user.email}
+        password={user.password}
+      />
+    );
   }
 
   return (
@@ -78,7 +102,6 @@ const Welcome = () => {
         <br />
         <input className="Submit" type="submit" value="Sign Up" /> <br />
       </form>
-      
     </div>
   );
 };

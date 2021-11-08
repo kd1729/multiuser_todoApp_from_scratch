@@ -1,13 +1,46 @@
 import React from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import App from "../App";
 
-function loginForm(e) {
-  e.preventDefault();
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  console.log(email, password);
-}
+const auth = getAuth();
+const Login = (props) => {
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+  });
 
-const Login = () => {
+  function loginForm(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    console.log(email, password);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  }
+
+  if (user.id !== null)
+    return (
+      <App
+        id={user.id}
+        name={user.name}
+        email={user.email}
+        password={user.password}
+      />
+    );
+
   return (
     <>
       <h1 className="Header">Log In Page</h1>
