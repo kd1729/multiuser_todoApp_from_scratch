@@ -3,7 +3,6 @@ import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import { db } from "./Firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
-import Login from "./Login";
 import { Link, Redirect} from "react-router-dom";
 
 const auth = getAuth();
