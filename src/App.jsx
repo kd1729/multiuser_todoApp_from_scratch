@@ -5,7 +5,7 @@ import { db } from "./Components/Firebase";
 import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
 // import { deleteDoc, deleteField, query, where, getDocs } from "firebase/firestore";
 const usersRef = collection(db, "users");
-const user = doc(usersRef, "b1SmIWJnD5FP5R7LpNJw");
+const user = doc(usersRef, "CHeOPJlCw9tRuVjGdVtAO");
 
 
 function App() {
@@ -92,6 +92,7 @@ function App() {
 
   return (
     <div className="MainDiv">
+      {console.log(doc)}
       {console.log(user)}
       <div className="author">
         Made with ❤ by{" "}
