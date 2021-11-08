@@ -7,9 +7,7 @@ const auth = getAuth();
 const Login = (props) => {
   const [user, setUser] = useState({
     id: "",
-    name: "",
     email: "",
-    password: "",
   });
 
   function loginForm(e) {
@@ -17,27 +15,30 @@ const Login = (props) => {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log(email, password);
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
+
+        setUser({
+          email: user.email,
+        });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // Handle Errors here.
+        if(error.code === 'auth/wrong-password'){
+          alert('Wrong password.')
+        }
+        else{
+          alert(error.message)
+        }
       });
   }
 
-  if (user.id !== null)
+  if (user.id !== "")
     return (
       <App
-        id={user.id}
-        name={user.name}
+        id={props.id}
         email={user.email}
-        password={user.password}
       />
     );
 

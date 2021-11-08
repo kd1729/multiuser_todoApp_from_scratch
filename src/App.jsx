@@ -5,9 +5,10 @@ import { db } from "./Components/Firebase";
 import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
 // import { deleteDoc, deleteField, query, where, getDocs } from "firebase/firestore";
 
-function App() {
+function App(props) {
   const usersRef = collection(db, "users");
-  const user = doc(usersRef, "id");
+  const user = doc(usersRef, props.id);
+  
 
   const [TODO, setTODO] = useState([]);
 
@@ -15,7 +16,7 @@ function App() {
     getDoc(user).then((doc) => {
       setTODO(doc.data().todos);
     });
-  }, []);
+  });
 
   async function AddTODO(newTODO) {
     await updateDoc(user, {
@@ -91,7 +92,7 @@ function App() {
 
   return (
     <div className="MainDiv">
-      {console.log(user)}
+      <h1>{props.name}</h1>
       <div className="author">
         Made with ❤ by{" "}
         <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">

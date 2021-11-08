@@ -4,7 +4,6 @@ import { db } from "./Firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 // import { query, getDocs, where } from "firebase/firestore";
 import { useState } from "react";
-import { nanoid } from "nanoid";
 import Login from "./Login";
 // import { Link, useHistory, Redirect } from "react-router-dom";
 
@@ -22,37 +21,47 @@ const Welcome = () => {
   async function submitForm(e) {
     e.preventDefault();
 
-    const id = nanoid();
     const name = e.target.Name.value;
     const email = e.target.Email.value;
+    const id = email.split("@")[0];
     const password = e.target.Password.value;
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
-        setUser(id);
-        alert("Welcome " + name + " Signup Successful ! Please Login now.");
+        setUser({
+          id,
+          name,
+          email,
+          password,
+        });
+
         setDoc(doc(usersRef, id), {
           Name: name,
           Email: email,
           Password: password,
           id: id,
         });
+
+        alert("Welcome " + name + " Signup Successful ! Please Login now.");
+
       })
       .catch((error) => {
-        alert("This email is already registerd ! Please Login.");
+        // Handle Errors here.
+        if (error.code === "auth/email-already-in-use") {
+          alert("Email already in use. Please Login !");
+        } else {
+          alert(error.message); 
+        }
       });
     document.getElementById("form").reset();
   }
 
-  if (user.id !== null) {
+  if (user.id !== "") {
     return (
       <Login
         id={user.id}
-        name={user.name}
-        email={user.email}
-        password={user.password}
       />
     );
   }
