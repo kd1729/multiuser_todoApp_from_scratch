@@ -16,7 +16,7 @@ function App(props) {
     getDoc(user).then((doc) => {
       setTODO(doc.data().todos);
     });
-  });
+  }, []);
 
   async function AddTODO(newTODO) {
     await updateDoc(user, {

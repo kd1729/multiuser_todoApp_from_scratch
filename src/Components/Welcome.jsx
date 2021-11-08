@@ -5,7 +5,7 @@ import { collection, doc, setDoc } from "firebase/firestore";
 // import { query, getDocs, where } from "firebase/firestore";
 import { useState } from "react";
 import Login from "./Login";
-// import { Link, useHistory, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const auth = getAuth();
 const usersRef = collection(db, "users");
@@ -45,25 +45,20 @@ const Welcome = () => {
         });
 
         alert("Welcome " + name + " Signup Successful ! Please Login now.");
-
       })
       .catch((error) => {
         // Handle Errors here.
         if (error.code === "auth/email-already-in-use") {
           alert("Email already in use. Please Login !");
         } else {
-          alert(error.message); 
+          alert(error.message);
         }
       });
     document.getElementById("form").reset();
   }
 
   if (user.id !== "") {
-    return (
-      <Login
-        id={user.id}
-      />
-    );
+    return <Login />;
   }
 
   return (
@@ -110,6 +105,9 @@ const Welcome = () => {
         />{" "}
         <br />
         <input className="Submit" type="submit" value="Sign Up" /> <br />
+        <Link to="/Login">
+          <h3>To Login, Click here</h3>
+        </Link>
       </form>
     </div>
   );

@@ -1,10 +1,12 @@
 import React from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import App from "../App";
 
 const auth = getAuth();
-const Login = (props) => {
+
+const Login = () => {
   const [user, setUser] = useState({
     id: "",
     email: "",
@@ -15,32 +17,26 @@ const Login = (props) => {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const id = email.split("@")[0];
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
         setUser({
-          email: user.email,
+          email: email,
+          id: id,
         });
       })
       .catch((error) => {
         // Handle Errors here.
-        if(error.code === 'auth/wrong-password'){
-          alert('Wrong password.')
-        }
-        else{
-          alert(error.message)
+        if (error.code === "auth/wrong-password") {
+          alert("Wrong password.");
+        } else {
+          alert(error.message);
         }
       });
   }
 
-  if (user.id !== "")
-    return (
-      <App
-        id={props.id}
-        email={user.email}
-      />
-    );
+  if (user.id !== "") return <App id={user.id} email={user.email} />;
 
   return (
     <>
@@ -73,6 +69,9 @@ const Login = (props) => {
         />{" "}
         <br />
         <input className="Submit" type="submit" value="Log In" /> <br />
+        <Link to="/Signup">
+          <h3>To Signup, Click here</h3>
+        </Link>
       </form>
     </>
   );
