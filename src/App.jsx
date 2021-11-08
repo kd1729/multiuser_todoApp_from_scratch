@@ -20,61 +20,103 @@ function App(props) {
     await updateDoc(user, {
       todos: [...TODO, newTODO],
     });
-    setTODO((prev) => {
-      return [...prev, newTODO];
-    });
+    // setTODO((prev) => {
+    //   return [...prev, newTODO];
+    // });
   }
 
   async function DeleteTODO(idx) {
     await updateDoc(user, {
       todos: [...TODO.filter((element) => element.id !== idx)],
     });
-    setTODO((prev) => {
-      return prev.filter((item) => {
-        return item.id !== idx;
-      });
+    // setTODO((prev) => {
+    //   return prev.filter((item) => {
+    //     return item.id !== idx;
+    //   });
+    // });
+  }
+
+  async function checkHandler(id) {
+    await updateDoc(user, {
+      todos: [
+        ...TODO.map((element) => {
+          if (element.id === id) {
+            return { ...element, checked: !element.checked };
+          } else {
+            return element;
+          }
+        }),
+      ],
     });
+    // setTODO(
+    //   TODO.map((t) => {
+    //     if (t.id === id) t.checked = !t.checked;
+    //     return t;
+    //   })
+    // );
   }
 
-  function checkHandler(id) {
-    setTODO(
-      TODO.map((t) => {
-        if (t.id === id) t.checked = !t.checked;
-        return t;
-      })
-    );
-  }
-
-  function displayCompleted() {
-    setTODO(
-      TODO.map((t) => {
-        t.completed = false;
-        t.pending = true;
-        if (t.checked === false) t.pending = false;
-        return t;
-      })
-    );
+  async function displayCompleted() {
+    await updateDoc(user, {
+      todos: [
+        ...TODO.map((element) => {
+          element.completed = false;
+          element.pending = true;
+          if (!element.checked) 
+            element.pending = false;
+          return element;
+        }),
+      ]
+    });
+    // setTODO(
+    //   TODO.map((t) => {
+    //     t.completed = false;
+    //     t.pending = true;
+    //     if (t.checked === false) t.pending = false;
+    //     return t;
+    //   })
+    // );
   }
 
   function displayPending() {
-    setTODO(
-      TODO.map((t) => {
-        t.completed = false;
-        t.pending = true;
-        if (t.checked === true) t.completed = true;
-        return t;
-      })
-    );
+    updateDoc(user, {
+      todos: [
+        ...TODO.map((element) => {
+          element.pending = true;
+          element.completed = false;
+          if (element.checked) 
+            element.completed = true;
+          return element;
+        }),
+      ]
+    });
+    // setTODO(
+    //   TODO.map((t) => {
+    //     t.completed = false;
+    //     t.pending = true;
+    //     if (t.checked === true) t.completed = true;
+    //     return t;
+    //   })
+    // );
   }
 
-  function displayAll() {
-    setTODO(
-      TODO.map((t) => {
-        t.completed = false;
-        t.pending = true;
-        return t;
-      })
-    );
+  async function displayAll() {
+   await updateDoc(user, {
+      todos: [
+        ...TODO.map((element) => {
+          element.pending = true;
+          element.completed = false;
+          return element;
+        }),
+      ]
+    });
+    // setTODO(
+    //   TODO.map((t) => {
+    //     t.completed = false;
+    //     t.pending = true;
+    //     return t;
+    //   })
+    // );
   }
 
   async function deleteCompleted() {
@@ -98,7 +140,7 @@ function App(props) {
       <h1>{props.name}</h1>
       {/* <div className="author">
         Made with ❤ by{" "}
-        <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">
+        <a href="https://github.com/onlykingKD/multiuser_todoApp_from_scratch">
           @onlykingKD
         </a>
       </div> */}
