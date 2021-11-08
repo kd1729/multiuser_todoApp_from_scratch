@@ -8,7 +8,6 @@ import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
 function App(props) {
   const usersRef = collection(db, "users");
   const user = doc(usersRef, props.id);
-  
 
   const [TODO, setTODO] = useState([]);
 
@@ -98,6 +97,11 @@ function App(props) {
         <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">
           @onlykingKD
         </a>
+      </div>
+
+      <div className="header">
+        <h1>Welcome {props.id}</h1>
+        <button className="signOut">SignOut</button>
       </div>
 
       <CreateTODO onAdd={AddTODO} />

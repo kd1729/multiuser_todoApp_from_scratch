@@ -18,8 +18,13 @@ body {
   max-height: 100vh;
   color: aliceblue;
   margin-left: 2rem;
-  /* display: grid;
-  place-items: center; */
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .MainDiv {
@@ -158,6 +163,29 @@ body {
 
 a {
   color: inherit;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;  
+} 
+
+.signOut{
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: #793d85;
+  color: white;
+  border-radius: 10px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.signOut:hover{
+  cursor: pointer;
+  background-color: rgb(126, 3, 18);
 }
 
 @media only screen and (max-width: 1000px) {

@@ -16,6 +16,7 @@ const Welcome = () => {
     name: "",
     email: "",
     password: "",
+    todos: [],
   });
 
   async function submitForm(e) {
@@ -25,6 +26,7 @@ const Welcome = () => {
     const email = e.target.Email.value;
     const id = email.split("@")[0];
     const password = e.target.Password.value;
+    const todos = [];
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -35,6 +37,7 @@ const Welcome = () => {
           name,
           email,
           password,
+          todos,
         });
 
         setDoc(doc(usersRef, id), {
@@ -42,6 +45,7 @@ const Welcome = () => {
           Email: email,
           Password: password,
           id: id,
+          todos: todos,
         });
 
         alert("Welcome " + name + " Signup Successful ! Please Login now.");
