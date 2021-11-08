@@ -4,7 +4,7 @@ import { db } from "./Firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import Login from "./Login";
-import { Link } from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 
 const auth = getAuth();
 const usersRef = collection(db, "users");
@@ -61,7 +61,7 @@ const Welcome = () => {
   }
 
   if (user.id !== "") {
-    return <Login />;
+    return <Redirect to="/Login" />;
   }
 
   return (
