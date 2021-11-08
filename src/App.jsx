@@ -3,8 +3,6 @@ import CreateTODO from "./Components/CreateTODO";
 import TODOS from "./Components/TODOS";
 import { db } from "./Components/Firebase";
 import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
-import { getAuth, signOut} from "firebase/auth";
-const auth = getAuth();
 
 function App(props) {
   const usersRef = collection(db, "users");
