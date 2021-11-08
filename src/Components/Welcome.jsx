@@ -1,8 +1,7 @@
 import React from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import { db } from "./Firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
-// import { query, getDocs, where } from "firebase/firestore";
 import { useState } from "react";
 import Login from "./Login";
 import { Link } from "react-router-dom";

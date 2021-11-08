@@ -28,7 +28,7 @@ h1{
 }
 
 .MainDiv {
-  width: 53rem;
+  width: 55rem;
 }
 
 .noTodosLeft {
@@ -39,6 +39,7 @@ h1{
 
 .createTODO {
   margin: 3rem auto;
+  padding-top: 2rem;
 }
 
 .createNewTODO,
@@ -46,7 +47,7 @@ h1{
 .timeLimit {
   background-color: rgb(82, 80, 80);
   color: white;
-  width: 400px;
+  width: 420px;
   padding-left: 1rem;
   font-size: 1.8rem;
   border-radius: 10px;

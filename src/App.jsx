@@ -3,7 +3,8 @@ import CreateTODO from "./Components/CreateTODO";
 import TODOS from "./Components/TODOS";
 import { db } from "./Components/Firebase";
 import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
-// import { deleteDoc, deleteField, query, where, getDocs } from "firebase/firestore";
+import { getAuth, signOut} from "firebase/auth";
+const auth = getAuth();
 
 function App(props) {
   const usersRef = collection(db, "users");
@@ -89,19 +90,26 @@ function App(props) {
     });
   }
 
+  function signOut() {
+    alert("You have been signed out !");
+    window.location.href = "/";
+  }
+
   return (
     <div className="MainDiv">
       <h1>{props.name}</h1>
-      <div className="author">
+      {/* <div className="author">
         Made with ❤ by{" "}
         <a href="https://github.com/onlykingKD/todoApp-FrontEndMentor">
           @onlykingKD
         </a>
-      </div>
+      </div> */}
 
       <div className="header">
         <h1>Welcome {props.id}</h1>
-        <button className="signOut">SignOut</button>
+        <button className="signOut" onClick={signOut}>
+          SignOut
+        </button>
       </div>
 
       <CreateTODO onAdd={AddTODO} />
