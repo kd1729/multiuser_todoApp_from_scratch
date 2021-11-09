@@ -132,6 +132,7 @@ function App(props) {
 
   function signOut() {
     alert("You have been signed out !");
+    displayAll();
     window.location.href = "/";
   }
 
