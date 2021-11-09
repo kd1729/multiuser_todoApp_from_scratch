@@ -70,7 +70,10 @@ const Login = () => {
         <br />
         <input className="Submit" type="submit" value="Log In" /> <br />
         <Link to="/Signup">
-          <h3>To Signup, Click here</h3>
+          <h3 className="signupLink">To Signup, Click here</h3>
+        </Link>
+        <Link to="/forgotPassword">
+          <h3 className="forgotPasswordLink">Forgot Password</h3>
         </Link>
       </form>
     </>

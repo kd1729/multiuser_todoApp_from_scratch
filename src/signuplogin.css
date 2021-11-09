@@ -8,7 +8,7 @@
 
 .signupForm,
 .loginForm,
-.deleteForm {
+.forgotPasswordForm {
   padding: 1rem;
   border-radius: 0.5rem;
   font-weight: 300;
@@ -23,7 +23,7 @@
   background-color: rgb(154, 247, 157);
 }
 
-.deleteForm {
+.forgotPasswordForm {
   background-color: rgb(243, 193, 193);
 }
 
@@ -75,20 +75,33 @@
   margin-top: 2rem;
 }
 
-.signupForm, .loginForm {
+.signupForm, .loginForm, .forgotPasswordForm {
   position: relative;
 }
 
-h3 {
+.signupLink, .loginLink {
   position: absolute;
   bottom: -2rem;
   right: 0;
 }
 
-h3:hover {
+.forgotPasswordLink{
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+}
+
+
+ .signupLink:hover, .loginLink:hover, .forgotPasswordLink:hover {
   cursor: pointer;
   text-decoration: underline;
 }
+
+
+
+
+
+
 
 .myButton {
   margin: 1rem;

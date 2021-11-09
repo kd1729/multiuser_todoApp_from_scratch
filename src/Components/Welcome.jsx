@@ -108,7 +108,7 @@ const Welcome = () => {
         <br />
         <input className="Submit" type="submit" value="Sign Up" /> <br />
         <Link to="/Login">
-          <h3>To Login, Click here</h3>
+          <h3 className="loginLink">To Login, Click here</h3>
         </Link>
       </form>
     </div>
