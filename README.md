@@ -1,4 +1,4 @@
-# A simple TODO app made from Scratch using ReactJS.
+# A multi-user TODO app made from Scratch using ReactJS.
 ### Key Features
 
 - Add / Delete a Todo.
