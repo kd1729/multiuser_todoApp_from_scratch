@@ -10,21 +10,21 @@
 
 ---
 
-### _Brach : multi-user_   
+### _Final_Brach : multi-user_   
 #### Live Deployment Link with firestore and firebase authentication (multi-user)
-https://nervous-minsky-a8c91d.netlify.app/  
+https://multiuser-todo-app.netlify.app/  
 **Multiple users can signup and login and maintain their own todo list.**
 
 ---
 
-### _Branch : firestore_  
+### Second_Branch : firestore_  
 #### Live Deployment Link with firestore (single user)
 https://admiring-bell-f1b577.netlify.app/  
 **user can access and modify his todo list from anywhere around the world.**
 
 ---
 
-### _Branch : main_  
+### Initial_Branch : main_  
 #### Live Deployment Link without firestore  
 https://musing-galileo-621b67.netlify.app/
 
