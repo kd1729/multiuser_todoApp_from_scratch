@@ -10,7 +10,7 @@ import forgotPassword from "./Components/forgotPassword";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Welcome} />
+      <Route exact path="/" component={Login} />
       <Route path="/Signup" component={Welcome} />
       <Route path="/Login" component={Login} />
       <Route path="/forgotPassword" component={forgotPassword} />
